@@ -20,6 +20,13 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from users import views as users_views
+from django.conf.urls import handler404, handler500
+from django.urls import path
+from . import views  # импортируйте ваши представления
+
+# Обработчики ошибок
+handler404 = 'django_project.views.custom_404_view'
+handler500 = 'django_project.views.custom_500_view'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
